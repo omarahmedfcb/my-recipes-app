@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 function Features() {
   let [myData, setMyData] = useState([]);
   async function getRecipes() {
-    const res = await fetch("/recipes_with_premium.json");
+    const res = await fetch("./recipes_with_premium.json");
     const data = await res.json();
     setMyData(data.recipes.slice(0, 6));
   }

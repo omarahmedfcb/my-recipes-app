@@ -1,12 +1,15 @@
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { loggedIn } from "../Redux/loggedLocalSlice";
+import { useDispatch } from "react-redux";
 
 function Register() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm();
+  const dispatch = useDispatch();
   function myHandleSubmit(data) {
     const registeredAccounts =
       JSON.parse(localStorage.getItem("registered")) || [];
@@ -20,10 +23,10 @@ function Register() {
         password: data.password,
       });
       localStorage.setItem("registered", JSON.stringify(registeredAccounts));
-      alert("Registered successfully");
-      reset();
+      toast.success("Registered successfully");
+      dispatch(loggedIn(data.username));
     } else {
-      alert("Username or Email is already registered");
+      toast.error("Username or Email is already registered");
     }
   }
   return (

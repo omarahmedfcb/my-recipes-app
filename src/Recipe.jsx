@@ -54,9 +54,11 @@ function Recipe({ item, index }) {
           <NavLink
             onClick={() =>
               !isLogged.is
-                ? toast.error(
-                    "This recipe is for premium plan, please sign in!"
-                  )
+                ? item.premium
+                  ? toast.error(
+                      "This recipe is for premium plan, please sign in!"
+                    )
+                  : null
                 : item.premium
                 ? toast.error("This recipe requires premium plan!")
                 : null

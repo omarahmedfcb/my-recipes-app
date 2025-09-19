@@ -57,7 +57,11 @@ function RecipeDetails() {
   }
   return (
     <div className="relative">
-      <div className=" sticky top-10 lg:top-16 z-[16] bg-white/80 backdrop-blur-md shadow-md">
+      <div
+        className={` sticky top-10 ${
+          isLogged.is ? "lg:top-16" : "lg:top-14"
+        }  z-[16] bg-white/80 backdrop-blur-md shadow-md`}
+      >
         <div className="container w-9/10 mx-auto flex items-center justify-between px-6 py-4 ">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
             {myItemData.name}

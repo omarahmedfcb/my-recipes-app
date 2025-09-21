@@ -19,7 +19,7 @@ function RecipeDetails() {
     async function getMyRecipe() {
       try {
         setLoading(true);
-        const res = await fetch("/recipes_with_premium.json");
+        const res = await fetch("recipes_with_premium.json");
         const data = await res.json();
         setMyItemData(data.recipes[Number(id) - 1]);
       } finally {

@@ -7,8 +7,6 @@ function Navbar() {
   const navigation = [
     { id: 1, name: "Home", to: "/" },
     { id: 2, name: "Products", to: "/products" },
-    { id: 3, name: "About", to: "/about" },
-    { id: 4, name: "Contact", to: "/contact" },
   ];
 
   useEffect(() => {
